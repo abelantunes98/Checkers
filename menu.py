@@ -467,7 +467,14 @@ class jogo():
 				# Pego o x e o y do retangulo selecionado.
 				self.x_ret = ret[0]
 				self.y_ret = ret[1]	
-			
+		
+		# Consertando erro de comer a peça mesmo depois de trocar a peça selecionada.
+		else:
+			self.peca_selecionada = None
+			self.lista_pos = []
+			self.lista_pos_indice = []
+			self.destino = None
+				
 			# Troca a peça selecionada.
 		if indice <= 7 and self.peca_selecionada != None and matriz_jogadores[indice][indice2] in (self.jogador1, self.dama) and (self.tem_pra_comer_list == [] or (indice, indice2) in self.tem_pra_comer_list):
 			self.peca_selecionada = (indice, indice2)
@@ -475,16 +482,18 @@ class jogo():
 			self.y_ret = ret[1]
 			self.lista_pos = []
 			self.lista_pos_indice = []
+			self.destino = None
 				
 		# Chama as possibilidades das damas
 		self.lista_pos = []
-		if indice <= 7 and indice2 <= 7 and matriz_jogadores[indice][indice2] in ('da', 'dv'):
+		
+		if indice <= 7 and indice2 <= 7 and matriz_jogadores[indice][indice2]  in ('da', 'dv') and (self.tem_pra_comer_list == [] or (indice, indice2) in self.tem_pra_comer_list):
 			possibilidades_dama(self)
 		
-		else:
+		elif self.tem_pra_comer_list == [] or (indice, indice2) in self.tem_pra_comer_list:
 			possibilidades(self)
 		
-		if self.peca_selecionada != None:
+		if self.peca_selecionada != None :
 			self.destino = (indice, indice2)
 	
 	def movimento(self):
