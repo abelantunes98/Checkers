@@ -69,6 +69,16 @@ class jogo():
 	# Desenhando pecas e tabuleiro.
 	def desenha_jogo(self):
 		
+		pygame.font.init()					# Configurando fonte
+		font = pygame.font.get_default_font()
+		font_placar = pygame.font.SysFont(font, 100)
+		
+		mensagem_placar = 'Placar:'
+		
+		texto_placar = font_placar.render(mensagem_placar, 1, cor_branca)		#aparece na tela um texto
+		
+		tela.blit(texto_placar, (830,30))
+		
 		lista_pos = self.lista_pos
 		
 		# Muda a cor da possibilidade de jogada.
