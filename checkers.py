@@ -487,7 +487,7 @@ class jogo():
 				self.x_ret = ret[0]
 				self.y_ret = ret[1]
 			
-		elif (indice, indice2) in self.tem_pra_comer_list:
+		elif (indice, indice2) in self.tem_pra_comer_list and (self.quem_comeu == None or (indice, indice2) == self.quem_comeu):
 			if colidiu == 'sim' and ((matriz_jogadores[indice][indice2] in ('dv', 'x') and self.turno == 'vermelho') or (matriz_jogadores[indice][indice2] in ('o', 'da') and self.turno == 'azul')) and (self.destino == None):
 				self.peca_selecionada = (indice, indice2) 
 				diagonais_peca(self)
