@@ -754,7 +754,7 @@ class jogo():
 	def menu(self):
 		
 		relogio = pygame.time.Clock()  # fps
-		tela.fill(cor_preta)
+		tela.fill(cor_branca)
 		
 		pygame.font.init()					# Configurando fonte
 		font = pygame.font.get_default_font()
@@ -769,23 +769,23 @@ class jogo():
 		mensagem_reiniciar = 'Jogar Novamente'
 		mensagem_sair = 'Sair do jogo'
 		
-		texto = font_titulo.render(mensagem, 1, cor_branca)		#aparece na tela um texto
+		texto = font_titulo.render(mensagem, 1, cor_preta)		#aparece na tela um texto
 		texto_sair = font_sair.render(mensagem_sair, 1, cor_branca)
 		
 		sair = font_sair.render(mensagem_sair, 1, cor_branca)
 		iniciar = font_iniciar.render(mensagem_iniciar, 1, cor_branca)
 		reiniciar = font_reiniciar.render(mensagem_reiniciar, 1, cor_branca)
 		
-		tela.blit(texto, (210,10))
+		tela.blit(texto, (250,200))
 		
 		
-		ret_iniciar = pygame.Rect(50, 300, 300, 100)
-		ret_sair = pygame.Rect(850, 300, 300, 100)
+		ret_iniciar = pygame.Rect(450, 370, 300, 100)
+		ret_sair = pygame.Rect(450, 500, 300, 100)
 		pygame.draw.rect(tela, cor_cinza, ret_iniciar)
 		pygame.draw.rect(tela, cor_cinza, ret_sair)
 		
-		tela.blit(iniciar, (85, 330))
-		tela.blit(sair, (920,330))
+		tela.blit(iniciar, (480, 400))
+		tela.blit(sair, (520,540))
 		
 		def ganhou(self):
 				
@@ -795,16 +795,16 @@ class jogo():
 				
 			mensagem = 'VENCEDOR: '
 			mensagem += ganhador
-			texto = font_titulo.render(mensagem, 1, cor_branca)		#aparece na tela um texto
+			texto = font_titulo.render(mensagem, 1, cor_preta)		#aparece na tela um texto
+			tela.fill(cor_branca)
+			tela.blit(texto, (75,200))
 				
-			tela.blit(texto, (50,20))
-				
-			ret_reiniciar = pygame.Rect(50, 300, 300, 100)
+			ret_reiniciar = pygame.Rect(450, 370, 300, 100)
 				
 			pygame.draw.rect(tela, cor_cinza, ret_reiniciar)
 			pygame.draw.rect(tela, cor_cinza, ret_sair)
-			tela.blit(reiniciar, (75, 330))
-			tela.blit(sair, (920,330))
+			tela.blit(reiniciar, (480, 405))
+			tela.blit(sair, (520,540))
 		
 		def olha_clique_menu(ret_iniciar, (x, y)):
 			if ret_iniciar.collidepoint(x, y):
