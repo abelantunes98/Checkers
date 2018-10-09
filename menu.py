@@ -1,5 +1,5 @@
 # coding: utf-8
-# coding: utf-8
+# Projeto desenvolvido como projeto final da disciplina de Lp1 na UFCG - Campus Campina Grande
 # Abel Antunes
 # 117210287
 # abel.neto
